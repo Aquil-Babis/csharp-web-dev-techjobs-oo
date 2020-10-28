@@ -18,12 +18,12 @@ namespace TechJobsOO
             Id = nextId;
             nextId++;
         }
-        public Job(string name, Employer employerName, Location employerLocation, PositionType positionType, CoreCompetency jobCoreCompetency): this()
+        public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency): this()
         {
             Name = name;
             EmployerName = employerName;
             EmployerLocation = employerLocation;
-            JobType = JobType;
+            JobType = jobType;
             JobCoreCompetency = jobCoreCompetency;
         }
 
