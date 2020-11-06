@@ -52,6 +52,7 @@ namespace TechJobsOO
             }
             else
             {
+                jobFields.Add($"ID: {this.Id}");
                 jobFields.Add($"Name: {(this.Name != "" ? this.Name : "Data not Available")}");
                 jobFields.Add($"Employer: {(this.EmployerName.Value != "" ? this.EmployerName.Value : "Data not Available")}");
                 jobFields.Add($"Location: {(this.EmployerLocation.Value != "" ? this.EmployerLocation.Value : "Data not Available")}");

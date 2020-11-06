@@ -50,7 +50,7 @@ namespace TechJobsTests
         public void TestLabelEachLineOfData()
         {
             Console.WriteLine(testJob1);
-            Assert.AreEqual(testJob1.ToString(), "\n" + $"Name: {testJob1.Name}" + "\n" + $"Employer: {testJob1.EmployerName.Value}" + "\n" + $"Location: {testJob1.EmployerLocation.Value}" + "\n" + $"Position Type: {testJob1.JobType.Value}" + "\n" + $"Core Competency: {testJob1.JobCoreCompetency.Value}\n");
+            Assert.AreEqual(testJob1.ToString(), "\n" + $"ID: {testJob1.Id}" + "\n" + $"Name: {testJob1.Name}" + "\n" + $"Employer: {testJob1.EmployerName.Value}" + "\n" + $"Location: {testJob1.EmployerLocation.Value}" + "\n" + $"Position Type: {testJob1.JobType.Value}" + "\n" + $"Core Competency: {testJob1.JobCoreCompetency.Value}\n");
         }
         [TestMethod]
         public void TestErrorMessageForBlankField()
