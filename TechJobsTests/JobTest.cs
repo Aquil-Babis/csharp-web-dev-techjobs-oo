@@ -1,4 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
 using TechJobsOO;
 namespace TechJobsTests
 {
@@ -27,7 +29,7 @@ namespace TechJobsTests
         [TestMethod]
         public void TestJobConstructorSetsAllFields()
         {
-           Assert.IsTrue(testJob1.Name == "Product tester" && testJob1.EmployerName.Value == "ACME" && testJob1.EmployerLocation.Value == "Desert" && testJob1.JobType.Value == "Quality control" && testJob1.JobCoreCompetency.value == "Persistence");
+           Assert.IsTrue(testJob1.Name == "Product tester" && testJob1.EmployerName.Value == "ACME" && testJob1.EmployerLocation.Value == "Desert" && testJob1.JobType.Value == "Quality control" && testJob1.JobCoreCompetency.Value == "Persistence");
         }
 
         [TestMethod]
@@ -36,6 +38,24 @@ namespace TechJobsTests
             Job testJob1Clone = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
             Assert.IsFalse(testJob1.Equals(testJob1Clone));
+        }
+        [TestMethod]
+        public void TestIncludesNewLinesBeforeAndAfterStrings()
+        {
+            
+            Assert.IsTrue(testJob1.ToString()[0] == '\n');
+            Assert.IsTrue(testJob1.ToString()[testJob1.ToString().Count()-1] == '\n');
+        }
+        [TestMethod]
+        public void TestLabelEachLineOfData()
+        {
+            Console.WriteLine(testJob1);
+            Assert.AreEqual(testJob1.ToString(), "\n" + $"Name: {testJob1.Name}" + "\n" + $"Employer: {testJob1.EmployerName.Value}" + "\n" + $"Location: {testJob1.EmployerLocation.Value}" + "\n" + $"Position Type: {testJob1.JobType.Value}" + "\n" + $"Core Competency: {testJob1.JobCoreCompetency.Value}\n");
+        }
+        [TestMethod]
+        public void TestErrorMessageForBlankField()
+        {
+
         }
     }
 }

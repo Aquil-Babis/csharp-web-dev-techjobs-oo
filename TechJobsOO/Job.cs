@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace TechJobsOO
 {
     public class Job
@@ -27,6 +30,7 @@ namespace TechJobsOO
             JobCoreCompetency = jobCoreCompetency;
         }
 
+        // TODO: Generate Equals() and GetHashCode() methods.
         public override bool Equals(object obj)
         {
             return obj is Job job &&
@@ -37,6 +41,25 @@ namespace TechJobsOO
         {
             return HashCode.Combine(Id);
         }
-        // TODO: Generate Equals() and GetHashCode() methods.
+
+        public override string ToString()
+        {
+            List<string> jobFields = new List<string>();
+
+            if (this.Name == null && this.EmployerName == null && this.EmployerLocation == null && this.JobType == null && this.JobCoreCompetency == null)
+            {
+                return ("\n" + "OOPS! This job does not seem to exist." + "\n");
+            }
+            else
+            {
+                jobFields.Add($"Name: {(this.Name != "" ? this.Name : "Data not Available")}");
+                jobFields.Add($"Employer: {(this.EmployerName.Value != "" ? this.EmployerName.Value : "Data not Available")}");
+                jobFields.Add($"Location: {(this.EmployerLocation.Value != "" ? this.EmployerLocation.Value : "Data not Available")}");
+                jobFields.Add($"Position Type: {(this.JobType.Value != "" ? this.JobType.Value : "Data not Available")}");
+                jobFields.Add($"Core Competency: {(this.JobCoreCompetency.Value != "" ? this.JobCoreCompetency.Value : "Data not Available")}");
+
+                return "\n" + String.Join('\n', jobFields) + "\n";
+            }
+        }
     }
 }
